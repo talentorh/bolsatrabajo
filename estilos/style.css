@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+    margin-top: -20px;
+}
+
+.principal{
+    width: 100%;
+    height: auto;
+    background: rgb(255, 255, 255);
+
+}
+#cabecera{
+    background-color: aquamarine;
+    width: 10%;
+    height: 30px;
+}
+.imagenN{
+    width: 100%;
+    max-width: 150px;
+    height: 100px;
+    background-image: url(../imagenes/hraei.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    float: right;
+    margin-top: -113px;
+    border-radius: 5px;
+}
+#cabecera h1{
+    color:brown;
+    
+}
+#cabecera h2{
+    color: grey;
+    display: inline-block;
+}
+.banco-talentos{
+    width: 99%;
+    height: auto;
+    background: floralwhite;
+    border-radius: 10px;
+    margin-top: 5px;
+    border: 1px solid #0C231E;
+    
+}
+
+.banco-talentos h1{
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-style: oblique;
+    margin-top: -1px;
+}
+.banco-talentos h2{
+    text-align: left;
+    font-size: 18px;
+    font-style: oblique;
+    margin-left: 8px; 
+}
+
+.Banco-talent{
+    width: 99%;
+    height: auto;
+    margin-top: 1%;
+    background: floralwhite;
+    border-radius: 5px;
+    border: 1px solid #0C231E;
+    
+}
+.Banco-talent h1{
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-style: oblique;
+}
+.Banco-talent h2{
+    text-align: center;
+    font-size: 15px;
+    color: black;
+    font-style: italic;
+    margin-left: 8px; 
+}
+.tabla{
+    margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+    table {
+        display: block;
+        overflow-x: auto;
+      }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight:bold;
+        font-size:1.3em;
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
+    }
+}
+.registro{
+    width: auto;
+    height: auto;
+    background:rgb(31, 65, 43);
+    border-radius: 10px;
+}
+
+.registro h3{
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    font-style: normal;
+    text-align: center;
+}
+.selCombo2{
+    width: 80%;
+    float: left;
+    margin-left: 10%;
+    border-radius: 5px;
+
+}
+.selCombo3{
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
