@@ -107,13 +107,13 @@
     
     
     
-        $sql = $conexion2->query("INSERT INTO otrosestudiosaltaesp(nombreformacionaltaesp, nombrealtaespecialidad, unidadhospaltaesp, fechainicioaltaesp, fechaterminoaltaesp, tiempocursadoaltaesp, documentorecibealtaesp, 
+        $sql = $conexion->prepare("INSERT INTO otrosestudiosaltaesp(nombreformacionaltaesp, nombrealtaespecialidad, unidadhospaltaesp, fechainicioaltaesp, fechaterminoaltaesp, tiempocursadoaltaesp, documentorecibealtaesp, 
          nombreformacionotros,nombreotrosestudiosuno,fechainiciootrosestudiosuno,  fechaterminootrosestudiosuno, documentorecibeestudiosuno,
          nombreformacionotrosdos, nombreotrosestudiosdos, fechainiciootrosestudiosdos, fechaterminootrosestudiosdos, documentorecibeestudiosdos,  id_postulado)
          VALUES(:nombreformacionaltaesp,:nombrealtaespecialidad,:unidadhospaltaesp,:fechainicioaltaesp,:fechaterminoaltaesp,:tiempocursadoaltaesp,:documentorecibealtaesp, 
          :nombreformacionotros,:nombreotrosestudiosuno, :fechainiciootrosestudiosuno, :fechaterminootrosestudiosuno, :documentorecibeestudiosuno, 
          :nombreformacionotrosdos,:nombreotrosestudiosdos, :fechainiciootrosestudiosdos, :fechaterminootrosestudiosdos, :documentorecibeestudiosdos, :id_postulado)");
-            $sql11->execute(array(
+            $sql->execute(array(
                 ':nombreformacionaltaesp'=>$nombreformacionaltaesp,
                 ':nombrealtaespecialidad'=>$nombrealtaespecialidad,
                 ':unidadhospaltaesp'=>$unidadhospaltaesp,
@@ -135,11 +135,11 @@
             ));
     
    
-        $sql11 = $conexion2->query("INSERT INTO socialpracticas(nombreserviciosocial, fechainicioservicio, fechaterminoservicio, laboresservicio, documentorecibeservicio,
+        $sql = $conexion->prepare("INSERT INTO socialpracticas(nombreserviciosocial, fechainicioservicio, fechaterminoservicio, laboresservicio, documentorecibeservicio,
         nombrepracticas, fechainiciopracticas, fechaterminopracticas, laborespracticas, documentorecibepracticas, id_postulado) 
         VALUES(:nombreserviciosocial,:fechainicioservicio,:fechaterminoservicio,:laboresservicio,:documentorecibeservicio,
         nombrepracticas,:fechainiciopracticas,  :fechaterminopracticas,:laborespracticas, :documentorecibepracticas, :id_postulado)"); 
-            $sql11-execute(array(
+            $sql->execute(array(
                 ':nombreserviciosocial'=>$nombreserviciosocial,
                 ':fechainicioservicio'=>$fechainicioservicio,
                 ':fechaterminoservicio'=>$fechaterminoservicio,
@@ -154,11 +154,11 @@
             ));
 
     
-        $sql = $conexion2->query("INSERT INTO cerficacion(nombreformacioncertificauno, nombrecertificacionuno, fechainiciocertificacionuno, fechaterminocertificacionuno, documentocertificacionuno,
+        $sql = $conexion->prepare("INSERT INTO cerficacion(nombreformacioncertificauno, nombrecertificacionuno, fechainiciocertificacionuno, fechaterminocertificacionuno, documentocertificacionuno,
         nombreformacioncertificaciondos,nombrecertificaciondos ,fechainiciocertificaciondos, fechaterminocertificaciondos, documentocertificaciondos,id_postulado)
         VALUES(:nombreformacioncertificauno,:nombrecertificacionuno,:fechainiciocertificacionuno,:fechaterminocertificacionuno,:documentocertificacionuno,
         :nombreformacioncertificaciondos,:nombrecertificaciondos, :fechainiciocertificaciondos, :fechaterminocertificaciondos, :documentocertificaciondos,:id_postulado)");
-            $sql11->excute(array(
+            $sql->execute(array(
             ':nombreformacioncertificauno'=>$nombreformacioncertificauno,
             ':nombrecertificacionuno'=>$nombrecertificacionuno,
             ':fechainiciocertificacionuno'=>$fechainiciocertificacionuno,
@@ -172,13 +172,13 @@
             ':id_postulado'=>$id_user
         ));
     
-        $sql = $conexion2->query("INSERT INTO actualizacionacademica(nombrecursouno, institucioncursouno, fechainiciocursouno, fechaterminocursouno, documentorecibecursouno, nacionalprimero,
+        $sql = $conexion->prepare("INSERT INTO actualizacionacademica(nombrecursouno, institucioncursouno, fechainiciocursouno, fechaterminocursouno, documentorecibecursouno, nacionalprimero,
         nombrecursodos, institucioncursodos,fechainiciocursodos,fechaterminocursodos,documentorecibecursodos, nacionalsegundo, 
         nombrecursotres, institucioncursotres, fechainiciocursotres, fechaterminocursotres, documentorecibecursotres,nacionaltercero ,id_postulado)
         VALUES(:nombrecursouno,:institucioncursouno,:fechainiciocursouno,:fechaterminocursouno,:documentorecibecursouno,:nacionalprimero,
         :nombrecursodos,:institucioncursodos,:fechainiciocursodos,:fechaterminocursodos,:documentorecibecursodos, :nacionalsegundo,
         :nombrecursotres, :institucioncursotres,:fechainiciocursotres, :fechaterminocursotres, :documentorecibecursotres, :nacionaltercero, :id_postulado)");
-            $sql11-excute(array(
+            $sql->execute(array(
             ':nombrecursouno'=>$nombrecursouno, 
             ':institucioncursouno'=>$institucioncursouno, 
             ':fechainiciocursouno'=>$fechainiciocursouno, 
@@ -209,13 +209,13 @@
     
     
     
-        $sql = $conexion2->query("INSERT INTO explaboralpublico(empresauno, cbx_dependenciauno, puestoempresauno, tipopuestouno, empresadirecionuno, telcontactouno, extencionuno, jefedirectouno, motivoseparacionuno, funcionespricipalesuno, fechainiciouno, fechaterminouno, 
+        $sql = $conexion->prepare("INSERT INTO explaboralpublico(empresauno, cbx_dependenciauno, puestoempresauno, tipopuestouno, empresadirecionuno, telcontactouno, extencionuno, jefedirectouno, motivoseparacionuno, funcionespricipalesuno, fechainiciouno, fechaterminouno, 
         empresados,cbx_dependenciados,puestoempresados,tipopuestodos,empresadirecdos, telcontactodos,extenciondos,jefedirectodos,motivoseparaciondos,funcionespricipalesdos,fechainicidos,fechaterminodos,
         empresatres, cbx_dependenciatres,puestoempresatres, tipopuestotres, empresadirectres,telcontactotres,extenciontres,jefedirectotres, motivoseparaciontres,funcionespricipalestres, fechainiciotres,fechaterminotres,id_postulado)
         VALUES(:empresauno,:cbx_dependenciauno,:puestoempresauno,:tipopuestouno,:empresadirecionuno,:telcontactouno,:extencionuno,:jefedirectouno,:motivoseparacionuno,:funcionespricipalesuno,:fechainiciouno,:fechaterminouno,
         :empresados,:cbx_dependenciados,:puestoempresados,:tipopuestodos, :empresadirecdos,:telcontactodos, :extenciondos,:jefedirectodos,:motivoseparaciondos, :funcionespricipalesdos,:fechainicidos,:fechaterminodos,
         :empresatres, :cbx_dependenciatres, :puestoempresatres, :tipopuestotres, :empresadirectres,:telcontactotres, :extenciontres, :jefedirectotres, :motivoseparaciontres, :funcionespricipalestres, :fechainiciotres,:fechaterminotres,:id_postulado)");
-        $sql11-excute(array(
+        $sql->execute(array(
             ':empresauno'=>$empresaone,
             ':cbx_dependenciauno'=>$cbx_dependenciaone,
             ':puestoempresauno'=>$puestoempresauno,
@@ -255,13 +255,13 @@
             ':id_postulado'=>$id_user,
         ));
         
-        $sql = $conexion2->query("INSERT INTO explaboralprivado(nombrelaboralprivada, tipopuestoprivada, direccionempresaprivada, telefonoempresaprivada, extencionempresaprivada, nombrejefeprivada, motivoseparacionprivada, funcionesprivada, fechainicioprivada, fechaterminoprivada, 
+        $sql = $conexion->prepare("INSERT INTO explaboralprivado(nombrelaboralprivada, tipopuestoprivada, direccionempresaprivada, telefonoempresaprivada, extencionempresaprivada, nombrejefeprivada, motivoseparacionprivada, funcionesprivada, fechainicioprivada, fechaterminoprivada, 
         nombrelaboralprivadados, tipopuestoprivadados, direccionempresaprivadados, telefonoempresaprivadados, extencionempresaprivadados, nombrejefeprivadados, motivoseparacionprivadados, funcionesprivadados, fechainicioprivadados, fechaterminoprivadados,
         nombrelaboralprivadatres, tipopuestoprivadatres, direccionempresaprivadatres, telefonoempresaprivadatres, nombrejefeprivadatres, motivoseparacionprivadatres, funcionesprivadatres, fechainicioprivadatres, fechaterminoprivadatres, id_postulado)
         VALUES(:nombrelaboralprivada,:tipopuestoprivada,:direccionempresaprivada,:telefonoempresaprivada,:extencionempresaprivada,:nombrejefeprivada, :motivoseparacionprivada
         :nombrelaboralprivadados, :tipopuestoprivadados, :direccionempresaprivadados, :telefonoempresaprivadados, :extencionempresaprivadados, :nombrejefeprivadados, :motivoseparacionprivadados, :funcionesprivadados, :fechainicioprivadados ,:fechaterminoprivadados,
         :nombrelaboralprivadatres, :tipopuestoprivadatres,:direccionempresaprivadatres, :telefonoempresaprivadatres, :nombrejefeprivadatres, :motivoseparacionprivadatres, :funcionesprivadatres, :fechainicioprivadatres, :fechaterminoprivadatres, :id_postulado)");
-        $sql11-excute(array(
+        $sql->execute(array(
             ':nombrelaboralprivada'=>$nombrelaboralprivada,
             ':tipopuestoprivada'=>$tipopuestoprivada,
             ':direccionempresaprivada'=>$direccionempresaprivada,
