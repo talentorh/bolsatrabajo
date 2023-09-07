@@ -34,7 +34,7 @@
              ':fechainicio'=>$DateAndTime
                 ));
                $validarid = $conexion->prepare("SELECT id_datopersonal from datospersonales where curp = :curp");
-               $validarid-execute(array(
+               $validarid->execute(array(
                ':curp'=>$curp
                 ));
                 $rowid = $validarid->fetch();
