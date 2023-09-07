@@ -1,9 +1,8 @@
-  <?php
-             require 'clasesConexion/conexion.php';
-             date_default_timezone_set('America/Mexico_City');    
-             $DateAndTime = date('Y-m-d', time());
-              extract($_POST);
-        
+          <?php
+            require 'clasesConexion/conexion.php';
+            date_default_timezone_set('America/Mexico_City');    
+            $DateAndTime = date('Y-m-d', time());
+             extract($_POST);
              $sql = $conexion->prepare("INSERT INTO datospersonales(puesto, profesion, curp, nombre, appaterno, apmaterno, estado, delegacion, localidad, colonia, calle, numexterior, numinterior, codigopostal,
              fechanacimiento, entidadnacimiento, rfc, sexo, cartanaturalizacion, telefonocasa, telefonocelular, otrotelefono, correoelectronico, etapaseleccion, eliminado, fechainicio, fechafinal) 
              VALUES(:puesto, :profesion, :curp, :nombre, :appaterno, :apmaterno, :estado, :delegacion, :localidad, :colonia, :calle, :numexterior, :numinterior, :codigopostal, :fechanacimiento, :entidadnacimiento, :rfc, :sexo, :cartanaturalizacion, :telefonocasa, :telefonocelular, :otrotelefono, :correoelectronico, :fechainicio)");
@@ -253,15 +252,15 @@
             ':fechainiciotres'=>$fechainiciotres,
             ':fechaterminotres'=>$fechaterminotres, 
             ':id_postulado'=>$id_user,
-        ));
+         ));
         
-        $sql = $conexion->prepare("INSERT INTO explaboralprivado(nombrelaboralprivada, tipopuestoprivada, direccionempresaprivada, telefonoempresaprivada, extencionempresaprivada, nombrejefeprivada, motivoseparacionprivada, funcionesprivada, fechainicioprivada, fechaterminoprivada, 
-        nombrelaboralprivadados, tipopuestoprivadados, direccionempresaprivadados, telefonoempresaprivadados, extencionempresaprivadados, nombrejefeprivadados, motivoseparacionprivadados, funcionesprivadados, fechainicioprivadados, fechaterminoprivadados,
-        nombrelaboralprivadatres, tipopuestoprivadatres, direccionempresaprivadatres, telefonoempresaprivadatres, nombrejefeprivadatres, motivoseparacionprivadatres, funcionesprivadatres, fechainicioprivadatres, fechaterminoprivadatres, id_postulado)
-        VALUES(:nombrelaboralprivada,:tipopuestoprivada,:direccionempresaprivada,:telefonoempresaprivada,:extencionempresaprivada,:nombrejefeprivada, :motivoseparacionprivada
-        :nombrelaboralprivadados, :tipopuestoprivadados, :direccionempresaprivadados, :telefonoempresaprivadados, :extencionempresaprivadados, :nombrejefeprivadados, :motivoseparacionprivadados, :funcionesprivadados, :fechainicioprivadados ,:fechaterminoprivadados,
-        :nombrelaboralprivadatres, :tipopuestoprivadatres,:direccionempresaprivadatres, :telefonoempresaprivadatres, :nombrejefeprivadatres, :motivoseparacionprivadatres, :funcionesprivadatres, :fechainicioprivadatres, :fechaterminoprivadatres, :id_postulado)");
-        $sql->execute(array(
+         $sql = $conexion->prepare("INSERT INTO explaboralprivado(nombrelaboralprivada, tipopuestoprivada, direccionempresaprivada, telefonoempresaprivada, extencionempresaprivada, nombrejefeprivada, motivoseparacionprivada, funcionesprivada, fechainicioprivada, fechaterminoprivada, 
+          nombrelaboralprivadados, tipopuestoprivadados, direccionempresaprivadados, telefonoempresaprivadados, extencionempresaprivadados, nombrejefeprivadados, motivoseparacionprivadados, funcionesprivadados, fechainicioprivadados, fechaterminoprivadados,
+         nombrelaboralprivadatres, tipopuestoprivadatres, direccionempresaprivadatres, telefonoempresaprivadatres, nombrejefeprivadatres, motivoseparacionprivadatres, funcionesprivadatres, fechainicioprivadatres, fechaterminoprivadatres, id_postulado)
+         VALUES(:nombrelaboralprivada,:tipopuestoprivada,:direccionempresaprivada,:telefonoempresaprivada,:extencionempresaprivada,:nombrejefeprivada, :motivoseparacionprivada
+         :nombrelaboralprivadados, :tipopuestoprivadados, :direccionempresaprivadados, :telefonoempresaprivadados, :extencionempresaprivadados, :nombrejefeprivadados, :motivoseparacionprivadados, :funcionesprivadados, :fechainicioprivadados ,:fechaterminoprivadados,
+         :nombrelaboralprivadatres, :tipopuestoprivadatres,:direccionempresaprivadatres, :telefonoempresaprivadatres, :nombrejefeprivadatres, :motivoseparacionprivadatres, :funcionesprivadatres, :fechainicioprivadatres, :fechaterminoprivadatres, :id_postulado)");
+         $sql->execute(array(
             ':nombrelaboralprivada'=>$nombrelaboralprivada,
             ':tipopuestoprivada'=>$tipopuestoprivada,
             ':direccionempresaprivada'=>$direccionempresaprivada,
@@ -282,61 +281,57 @@
             ':funcionesprivadados'=>$funcionesprivadados,
             ':fechainicioprivadados'=>$fechainicioprivadados,
             ':fechaterminoprivadados'=>$fechaterminoprivadados,
-            
+            ':nombrelaboralprivadatres'=>$nombrelaboralprivadatres,
+            ':tipopuestoprivadatres '=>$tipopuestoprivadatres, 
+            ':direccionempresaprivadatres'=>$direccionempresaprivadatres,
+            ':telefonoempresaprivadatres'=>$telefonoempresaprivadatres,
+            ':extencionempresaprivadatres'=>$extencionempresaprivadatres,
+            ':nombrejefeprivadatres'=>$nombrejefeprivadatres, 
+            ':motivoseparacionprivadatres'=>$motivoseparacionprivadatres,
+            ':funcionesprivadatres'=>$funcionesprivadatres,
+            ':fechainicioprivadatres'=>$fechainicioprivadatres,
+            ':fechaterminoprivadatres'=>$fechaterminoprivadatres,
+             ':id_postulado'=>$id_user
+            ));
+            $sql = $conexion->prepare("INSERT INTO cientificaidioma(nombrepublicacion, tiempopublicacion, publicadoen, paisdepublicacion,
+            nombreidioma, nivel, niveldedominio, documentoacredita, otrashabilidades, id_postulado)
+            VALUES(:nombrepublicacion,:tiempopublicacion,:publicadoen,:paisdepublicacion,
+            :nombreidioma, :nivel,:niveldedominio, :documentoacredita,:otrashabilidades, :id_postulado)");
+            $sql->execute(array(
+            ':nombrepublicacion'=>$nombrepublicacion,
+            ':tiempopublicacion'=>$tiempopublicacion,
+            ':publicadoen'=>$publicadoen,
+            ':paisdepublicacion'=>$paisdepublicacion,
+            ':nombreidioma'=>$nombreidioma,
+            ':nivel'=>$nivel,
+            ':niveldedominio'=>$niveldedominio,
+            ':documentoacredita'=>$documentoacredita,
+            ':otrashabilidades'=>$otrashabilidades,
             ':id_postulado'=>$id_user
-        ));
+            ));
+          $sql = $conexion->prepare("INSERT INTO manifiesto(familiaresenhraei, autorizodatoscorreo, autorizodatostelefono, autorizodatosgenerales,
+           id_postulado)
+            VALUES(:familiaresenhraei,:autorizodatoscorreo,:autorizodatostelefono,:autorizodatosgenerales,:id_postulado)");
+            $sql->execute(array(
+            ':familiaresenhraei'=>$familiaresenhraei,
+            ':autorizodatoscorreo'=>$autorizodatoscorreo,
+            ':autorizodatostelefono'=>$autorizodatostelefono,
+            ':autorizodatosgenerales'=>$autorizodatosgenerales,
+            ':id_postulado'=>$id_user
+            )); 
     
-        if(empty($nombrelaboralprivadatres)){
-        $sql = $conexion2->query("UPDATE explaboralprivado SET nombrelaboralprivadatres ='-', tipopuestoprivadatres ='-', direccionempresaprivadatres ='-', telefonoempresaprivadatres ='-', c ='-', nombrejefeprivadatres ='-', 
-        motivoseparacionprivadatres ='-', funcionesprivadatres ='-', fechainicioprivadatres ='-', fechaterminoprivadatres ='-'
-        WHERE id_postulado=$id_user");
-    }else{
-        $sql = $conexion2->query("UPDATE explaboralprivado SET nombrelaboralprivadatres ='$nombrelaboralprivadatres', tipopuestoprivadatres ='$tipopuestoprivadatres', direccionempresaprivadatres ='$direccionempresaprivadatres', telefonoempresaprivadatres ='$telefonoempresaprivadatres', extencionempresaprivadatres ='$extencionempresaprivadatres', nombrejefeprivadatres ='$nombrejefeprivadatres', 
-        motivoseparacionprivadatres ='$motivoseparacionprivadatres', funcionesprivadatres ='$funcionesprivadatres', fechainicioprivadatres ='$fechainicioprivadatres', fechaterminoprivadatres ='$fechaterminoprivadatres'
-        WHERE id_postulado=$id_user");
-    }
-    if(empty($nombrepublicacion)){
-        $sql = $conexion2->query("INSERT INTO cientificaidioma(nombrepublicacion, tiempopublicacion, publicadoen, paisdepublicacion,id_postulado)
-        VALUES('-','-','-','-',$id_user)");
-    }else{
-        $sql = $conexion2->query("INSERT INTO cientificaidioma(nombrepublicacion, tiempopublicacion, publicadoen, paisdepublicacion,id_postulado)
-        VALUES('$nombrepublicacion','$tiempopublicacion','$publicadoen','$paisdepublicacion',$id_user)");
-    }
-    if(empty($nombreidioma)){
-        $sql = $conexion2->query("UPDATE cientificaidioma SET nombreidioma = '-', nivel = '-', niveldedominio = '-', documentoacredita = '-'
-        WHERE id_postulado = $id_user");
-    }else{
-        $sql = $conexion2->query("UPDATE cientificaidioma SET nombreidioma = '$nombreidioma', nivel = '$nivel', niveldedominio = '$niveldedominio', documentoacredita = '$documentoacredita'
-        WHERE id_postulado = $id_user");
-    }
-    if(empty($otrashabilidades)){
-        $sql = $conexion2->query("UPDATE cientificaidioma SET otrashabilidades = '-'
-        WHERE id_postulado = $id_user");
-    }else{
-        $sql = $conexion2->query("UPDATE cientificaidioma SET otrashabilidades = '$otrashabilidades'
-        WHERE id_postulado = $id_user");
-    }
-    if(empty($selCombo)){
-        $sql = $conexion2->query("INSERT INTO manifiesto(familiaresenhraei, autorizodatoscorreo, autorizodatostelefono, autorizodatosgenerales,id_postulado)
-        VALUES('-','-','-','-',$id_user)");
-    }else{
-        $sql = $conexion2->query("INSERT INTO manifiesto(familiaresenhraei, autorizodatoscorreo, autorizodatostelefono, autorizodatosgenerales,id_postulado)
-        VALUES('$selCombo','$correo_elect','$telefono_enlace','$selCombo5',$id_user)"); 
-    }
-    if($sql1 != false){
-        
-        echo "<script>swal({
-            title: 'Good job!',
-            text: 'Tus datos han sido enviados y registrados exitosamente, Gracias por postularte a la bolsa de trabajo del HRAEI!',
-            icon: 'success',
-    });</script>";     
-
-    }else{
-        echo "<script>swal({
-            title: 'Fatal!',
-            text: 'Error al guardar informacion!',
-            icon: 'error',
-            });</script>"; 
-    }
-?>  
+         if($sql1 != false){
+         echo "<script>swal({
+          title: 'Good job!',
+         text: 'Tus datos han sido enviados y registrados exitosamente, Gracias por postularte a la bolsa de trabajo del HRAEI!',
+         icon: 'success',
+          });</script>";     
+         }else{
+          echo "<script>swal({
+         title: 'Fatal!',
+         text: 'Error al guardar informacion!',
+         icon: 'error',
+         });</script>"; 
+          }
+         ?>  
 
