@@ -3,6 +3,10 @@
             date_default_timezone_set('America/Mexico_City');    
             $DateAndTime = date('Y-m-d', time());
              extract($_POST);
+             try{
+                $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conexion->setAttribute(PDO::ATTR_AUTOCOMMIT,0);
+                $conexion->beginTransaction();
              $sql = $conexion->prepare("INSERT INTO datospersonales(puesto, profesion, curp, nombre, appaterno, apmaterno, estado, delegacion, localidad, colonia, calle, numexterior, numinterior, codigopostal,
              fechanacimiento, entidadnacimiento, rfc, sexo, cartanaturalizacion, telefonocasa, telefonocelular, otrotelefono, correoelectronico, etapaseleccion, eliminado, fechainicio, fechafinal) 
              VALUES(:puesto, :profesion, :curp, :nombre, :appaterno, :apmaterno, :estado, :delegacion, :localidad, :colonia, :calle, :numexterior, :numinterior, :codigopostal, :fechanacimiento, :entidadnacimiento, :rfc, :sexo, :cartanaturalizacion, :telefonocasa, :telefonocelular, :otrotelefono, :correoelectronico, :fechainicio)");
@@ -251,7 +255,7 @@
             ':funcionespricipalestres'=>$funcionespricipalestres,
             ':fechainiciotres'=>$fechainiciotres,
             ':fechaterminotres'=>$fechaterminotres, 
-            ':id_postulado'=>$id_user,
+            ':id_postulado'=>$id_user
          ));
         
          $sql = $conexion->prepare("INSERT INTO explaboralprivado(nombrelaboralprivada, tipopuestoprivada, direccionempresaprivada, telefonoempresaprivada, extencionempresaprivada, nombrejefeprivada, motivoseparacionprivada, funcionesprivada, fechainicioprivada, fechaterminoprivada, 
@@ -320,18 +324,19 @@
             ':id_postulado'=>$id_user
             )); 
     
-         if($sql1 != false){
-         echo "<script>swal({
-          title: 'Good job!',
-         text: 'Tus datos han sido enviados y registrados exitosamente, Gracias por postularte a la bolsa de trabajo del HRAEI!',
-         icon: 'success',
-          });</script>";     
-         }else{
-          echo "<script>swal({
-         title: 'Fatal!',
-         text: 'Error al guardar informacion!',
-         icon: 'error',
-         });</script>"; 
-          }
+            $validatransac = $conexion->commit();
+
+            if($validatransac != false) {
+                echo "<script>alert('Tus datos han sido actualizados satisfactoriamente');
+        </script>";
+        header('location: ../misDatos');
+        }
+        }catch(Exception $e) {
+        $conexion->rollBack();
+        echo "<script>alert('Error al actualizar tus datos');
+        </script>";
+        header('location: ../misDatos');
+        }
+            
          ?>  
 
